@@ -60,7 +60,9 @@ iterations = 1500;
 alpha = 0.01;
 
 % compute and display initial cost
-computeCost(X, y, theta)
+j = computeCost(X, y, theta)
+fprintf('Testing - ');
+disp(j);
 
 % run gradient descent
 theta = gradientDescent(X, y, theta, alpha, iterations);
