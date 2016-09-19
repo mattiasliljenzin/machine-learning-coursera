@@ -33,7 +33,6 @@ fprintf('5x5 Identity Matrix: \n');
 warmUpExercise()
 
 fprintf('Program paused. Press enter to continue.\n');
-pause;
 
 
 %% ======================= Part 2: Plotting =======================
@@ -47,7 +46,6 @@ m = length(y); % number of training examples
 plotData(X, y);
 
 fprintf('Program paused. Press enter to continue.\n');
-pause;
 
 %% =================== Part 3: Gradient descent ===================
 fprintf('Running Gradient Descent ...\n')
@@ -62,7 +60,7 @@ alpha = 0.01;
 % compute and display initial cost
 disp('compute cost');
 computeCost(X, y, theta)
-pause;
+
 % run gradient descent
 theta = gradientDescent(X, y, theta, alpha, iterations);
 
