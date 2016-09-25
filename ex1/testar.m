@@ -1,22 +1,23 @@
 function J = testar() 
 
-	data = load('ex1data1.txt');
-	X = data(:, 1); y = data(:, 2);
+	%data = load('ex1data1.txt');
+	%x = data(:, 1); 
+	%y = data(:, 2);
+
+	x = [1; 2; 3; 4; 5; 6; 7];
+	y = [2; 4; 6; 8; 10; 12; 14];
 	m = length(y); % number of training examples
-	X = [ones(m, 1), data(:,1)]; % Add a column of ones to x
-	theta = zeros(2, 1); % initialize fitting parameters
+	theta = 2;
+	alpha = 0.01;
 
-	h = X * theta;
-	s = [];
-
-	for i=1:m
-	    s = ((X(i) * theta) - y(i));
+	for i=1:10
+		h = x * theta;
+		cost = 1 / (2*m) * sum(h-y);
+		theta = theta - alpha * cost
 	end
-
-	sss = sum(h - y); %funkar
-	sss
-	s
-	%theta = theta - alpha * 1/m * ssss;
+	
+	plot(y, x, 'rx', x * theta, x, '-');
+	theta
 end
 
 function res = calculate(x,y)
