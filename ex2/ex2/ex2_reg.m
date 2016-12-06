@@ -69,7 +69,7 @@ lambda = 1;
 
 fprintf('Cost at initial theta (zeros): %f\n', cost);
 
-fprintf('\nProgram paused. Press enter to continue.\n');
+fprintf('\nProgram paused. Press enter to continue.!\n');
 pause;
 
 %% ============= Part 2: Regularization and Accuracies =============
