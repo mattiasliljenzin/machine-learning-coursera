@@ -20,18 +20,17 @@ grad = zeros(size(theta));
 h = X * theta;
 g = sigmoid(h);
 
-nonBaseThetas = theta'(:, 2:length(theta));
+theta(1) = 0;
+firstPart = (-y)' * log(g);
+secondPart = (1 - y)' * log(1 - g);
+p = lambda * (theta' * theta) / (2*m);
 
-firstPart = ((-y)' * log(g));
-secondPart = ((1 - y)' * log(1 - g));
-regularizedPart = sum((lambda / (2*m)) * nonBaseThetas);
+J = (1/m) * (firstPart - secondPart) + p;
 
-J = (1/m) * (firstPart - secondPart) + regularizedPart;
-
-mask = theta;
+mask = ones(size(theta));
 mask(1) = 0;
-partOne = (1/m) * (X' * (g - y));
-grad = partOne + ((lambda/m)*sum(mask))
+grad = (1/m) * (X' * (g - y)) + ((lambda/m)*(theta .* mask));
+
 
 % =============================================================
 
