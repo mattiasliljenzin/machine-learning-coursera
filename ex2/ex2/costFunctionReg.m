@@ -19,6 +19,13 @@ grad = zeros(size(theta));
 
 
 
+h = X * theta;
+g = sigmoid(h);
+firstPart = -y' * log(g);
+secondPart = (1 - y)' * log(1 - g);
+
+J = (1/m) * (firstPart - secondPart);
+grad = (1/m) * (X' * (h - y)); 
 
 
 
